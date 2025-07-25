@@ -1,0 +1,15 @@
+@let animal = animal$ | async; @if (animal !== null) {
+<mat-card>
+  <mat-card-title>{{ animal.nomCommun }}</mat-card-title>
+  <mat-card-subtitle>{{ animal.nomSavant }}</mat-card-subtitle>
+  <mat-card-content>
+    <p><strong>Famille :</strong> {{ animal.famille }}</p>
+    <p><strong>Genre :</strong> {{ animal.genre }}</p>
+    <p><strong>Statut IUCN :</strong> {{ animal.statutIUCN }}</p>
+    <p><strong>Description :</strong></p>
+    <p>{{ animal.description }}</p>
+  </mat-card-content>
+</mat-card>
+} @else {
+<p>Chargement...</p>
+}

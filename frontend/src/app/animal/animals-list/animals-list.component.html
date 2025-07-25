@@ -1,0 +1,23 @@
+<h2>Liste des animaux</h2>
+
+<mat-list>
+  @let animals = animals$ | async; @if (animals !== null) { @for (animal of
+  animals; track animal.id) {
+  <mat-list-item>
+    {{ animal.nomCommun }} ({{ animal.nomSavant }})
+    <span class="spacer"></span>
+    <a [routerLink]="['/animals', animal.id]">
+      <button mat-button color="primary">Détails</button>
+    </a>
+
+    @if (auth.isAdmin) {
+    <a [routerLink]="['/edit-animal', animal.id]">
+      <button mat-button color="accent">Modifier</button>
+    </a>
+    <button mat-button color="warn" (click)="deleteAnimal(animal.id!)">
+      Supprimer
+    </button>
+    }
+  </mat-list-item>
+  } }
+</mat-list>

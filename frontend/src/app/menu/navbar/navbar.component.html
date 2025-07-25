@@ -1,0 +1,29 @@
+<mat-toolbar color="primary">
+  <span>FW2 - Observations Animaux</span>
+  <span class="spacer"></span>
+
+  <a mat-button routerLink="/animals">Animaux</a>
+  <a mat-button routerLink="/observations">Observations</a>
+
+  @if (auth.isAuthentified) {
+  <a mat-button routerLink="/add-observation">Ajouter une observation</a>
+  } @if (auth.isAdmin) {
+  <a mat-button routerLink="/add-animal">Ajouter un animal</a>
+  }
+
+  <a mat-button routerLink="/about">À propos</a>
+
+  <span class="spacer"></span>
+
+  @if (auth.isAuthentified) {
+  <button mat-button (click)="logout()" color="warn">Déconnexion</button>
+  } @else {
+  <a mat-button routerLink="/login">Connexion</a>
+  }
+</mat-toolbar>
+
+@if (auth.isAuthentified) {
+<div class="user-info">
+  Connecté en tant que : <strong>{{ auth.username }}</strong>
+</div>
+}

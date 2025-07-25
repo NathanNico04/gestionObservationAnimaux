@@ -1,0 +1,30 @@
+<h2>Tableau de bord</h2>
+
+@let totalObservations = totalObservations$ | async; @let badges = badges$ |
+async; @if (totalObservations !== null) {
+<mat-card>
+  <mat-card-title>Statistiques</mat-card-title>
+  <mat-card-content>
+    <p>
+      <strong>Nombre total d'observations :</strong> {{ totalObservations }}
+    </p>
+  </mat-card-content>
+</mat-card>
+} @if (badges !== null) {
+<mat-card style="margin-top: 2rem">
+  <mat-card-title>Badges obtenus</mat-card-title>
+  <mat-card-content>
+    @if (badges.length > 0) {
+    <mat-list>
+      @for (badge of badges; track badge.id) {
+      <mat-list-item>
+        <strong>{{ badge.nom }}</strong> — {{ badge.description }}
+      </mat-list-item>
+      }
+    </mat-list>
+    } @else {
+    <p>Pas encore de badges obtenus.</p>
+    }
+  </mat-card-content>
+</mat-card>
+}

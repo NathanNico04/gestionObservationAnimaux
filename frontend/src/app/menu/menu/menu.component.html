@@ -1,0 +1,29 @@
+<nav
+  style="
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  "
+>
+  <div>
+    <a routerLink="/animals" mat-button>Animaux</a>
+    <a routerLink="/observations" mat-button>Observations</a>
+    <a routerLink="/about" mat-button>À propos</a>
+  </div>
+
+  <div>
+    @if (auth.isAuthentified) {
+    <span
+      >Connecté en tant que <strong>{{ auth.username }}</strong></span
+    >
+    <button mat-raised-button color="warn" (click)="logout()">
+      Déconnexion
+    </button>
+    } @else {
+    <a routerLink="/login">
+      <button mat-raised-button color="primary">Connexion</button>
+    </a>
+    }
+  </div>
+</nav>

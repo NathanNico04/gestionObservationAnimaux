@@ -1,0 +1,17 @@
+@let observation = observation$ | async; @if (observation !== null) {
+<mat-card>
+  <mat-card-title>
+    @if (observation.animalName) {
+    {{ observation.animalName }} observé le {{ formatDate(observation.date) }} }
+    @else { Observation du {{ formatDate(observation.date) }}
+    }
+  </mat-card-title>
+  <mat-card-content>
+    <p><strong>Latitude :</strong> {{ observation.latitude }}</p>
+    <p><strong>Longitude :</strong> {{ observation.longitude }}</p>
+    <p><strong>Description :</strong> {{ observation.description }}</p>
+  </mat-card-content>
+</mat-card>
+} @else {
+<p>Chargement...</p>
+}

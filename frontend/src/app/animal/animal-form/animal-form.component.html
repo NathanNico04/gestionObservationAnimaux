@@ -1,0 +1,18 @@
+<mat-card>
+  <mat-card-title>
+    {{ isEditing ? "Modifier un animal" : "Ajouter un nouvel animal" }}
+  </mat-card-title>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    @for (field of ['nomCommun', 'nomSavant', 'embranchement', 'classe',
+    'ordre', 'sousOrdre', 'famille', 'genre', 'statutIUCN', 'description'];
+    track field) {
+    <mat-form-field class="full-width">
+      <mat-label>{{ field }}</mat-label>
+      <input matInput [formControlName]="field" />
+    </mat-form-field>
+    }
+    <button mat-raised-button color="primary" type="submit">
+      {{ isEditing ? "Modifier" : "Créer" }}
+    </button>
+  </form>
+</mat-card>

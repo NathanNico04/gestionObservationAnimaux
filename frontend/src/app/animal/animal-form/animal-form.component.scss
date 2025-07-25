@@ -1,0 +1,35 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+h1,
+h2 {
+  text-align: center;
+  font-family: "Roboto Slab", serif;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+
+mat-card {
+  width: 100%;
+  max-width: 500px;
+  padding: 2rem 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  background: #fafafa;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 1.2rem;
+}
+
+button[type="submit"] {
+  display: block;
+  margin: 2rem auto 0 auto;
+  min-width: 160px;
+}

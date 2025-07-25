@@ -1,0 +1,43 @@
+@if (!auth.isAuthentified) {
+<form>
+  <mat-form-field>
+    <mat-label>Username</mat-label>
+    <input
+      matInput
+      name="username"
+      type="text"
+      [(ngModel)]="username"
+      required
+      (ngModelChange)="auth.reset_error()"
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input
+      matInput
+      name="password"
+      type="password"
+      [(ngModel)]="password"
+      required
+      (ngModelChange)="auth.reset_error()"
+    />
+  </mat-form-field>
+  <div>
+    <button
+      [disabled]="!isValid"
+      mat-raised-button
+      class="primary"
+      (click)="login()"
+    >
+      Login
+    </button>
+  </div>
+  <div>
+    <button mat-flat-button [hidden]="!auth.error" class="warn">
+      Authentication failed
+    </button>
+  </div>
+</form>
+} @else {
+<h1>Welcome {{ auth.username }}!</h1>
+}

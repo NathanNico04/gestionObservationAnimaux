@@ -1,0 +1,35 @@
+<h2>Liste des observations</h2>
+
+@let observations = observations$ | async; @if (observations === null) {
+<div class="center">
+  <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+</div>
+} @else if (observations.length === 0) {
+<p>Aucune observation trouvée pour cet utilisateur.</p>
+} @else {
+<mat-list>
+  @for (obs of observations; track obs.id) {
+  <mat-list-item>
+    {{ obs.animalName ?? "Observation" }} - {{ formatDate(obs.date) }}
+    <span class="spacer"></span>
+    <a [routerLink]="['/observations', obs.id]">
+      <button mat-button color="primary">Détails</button>
+    </a>
+    @if (obs.user?.id == auth.userid) {
+    <a [routerLink]="['/edit-observation', obs.id]">
+      <button mat-button color="accent">Modifier</button>
+    </a>
+    <button mat-button color="warn" (click)="deleteObservation(obs.id!)">
+      Supprimer
+    </button>
+    }
+  </mat-list-item>
+  }
+</mat-list>
+} @if (auth.isAuthentified) {
+<a routerLink="/add-observation">
+  <button mat-raised-button color="primary" style="margin-top: 1rem">
+    Ajouter une observation
+  </button>
+</a>
+}
