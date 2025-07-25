@@ -1,6 +1,6 @@
 # Framework Web 2
 
-## Membres du groupe
+## Collaborateur projet
 
 - Maximilien Goujon `maximilien.goujon@etu.univ-orleans.fr`
 - Nathan Nicolessi `nathan.nicolessi@etu.univ-orleans.fr`
